@@ -27,8 +27,6 @@ st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 # Global constant
 MAX_PODCAST = 5
 
-controller = CookieController(key='cookies')
-
 # ======================================================================================================================================
 # Aux Functions Zone
 # ======================================================================================================================================
@@ -178,21 +176,6 @@ class Process:
                     "user": {"content": None, "hidden": None}, 
                     "assistant": {"content": None, "hidden": None},
                 } 
-
-
-    # Stream generator for responses
-    def stream_data(self, text):
-        for word in text:
-            yield word
-            time.sleep(0.02)
-
-    # Function to display the assistant's response
-    # @st.fragment(run_every=None)  # Runs only on user-triggered actions
-    def display_response(self):
-        message = st.session_state.messages[self.idx]
-        if message["assistant"]["content"]:
-            with st.chat_message("assistant"):
-                st.write("{}".format(message["assistant"]["content"]))
 
     def render(self):
 
