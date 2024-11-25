@@ -1,0 +1,5 @@
+gtts
+pydub
+ffmpeg-python
+streamlit
+openai
